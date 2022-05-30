@@ -1,0 +1,16 @@
+/* aca le sacamos la pocicion por defecto a cero de las imagenes*/
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* aca indicamos que las imagenes deben reagruparse con el(wrap) cuando el ancho de la pantalla cambia*/
+.imagenes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* aca le indicamos que las imagenes deben tener 300px de ancho*/
+.imagenes img {
+  width: 300px;
+}
