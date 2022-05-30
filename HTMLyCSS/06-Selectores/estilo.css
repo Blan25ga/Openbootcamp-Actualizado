@@ -1,0 +1,21 @@
+/*con este codigo centramos el boton en la pantalla*/
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* le damos un color blanco al boton, y al pasar el mause por encima, con el 'hover' se vuelve del color del background */
+.btn1:hover {
+  background-color: green;
+  color: white;
+}
+/*con el before creamos el contenido del boton*/
+.btn1::before {
+  content: "Pasa por encima";
+}
+/*con en 'hover::before', creamos la nueva solicitud del boton e indicacion*/
+.btn1:hover::before {
+  content: "Hecho";
+}
