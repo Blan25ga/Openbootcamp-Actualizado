@@ -1,0 +1,37 @@
+{"level":"info","message":"Hola, soy un mensaje informativo","service":"user-service"}
+{"level":"warn","message":"Hola, soy un mensaje de advertencia","service":"user-service"}
+{"level":"error","message":"Hola, soy un mensaje de error","service":"user-service"}
+{"level":"info","message":"Hola, soy un mensaje informativo","service":"user-service"}
+{"level":"warn","message":"Hola, soy un mensaje de advertencia","service":"user-service"}
+{"level":"error","message":"Hola, soy un mensaje de error","service":"user-service"}
+{"level":"debug","message":"Hola, soy un mensaje de depuracion","service":"user-service"}
+{"level":"info","message":"Hola, soy un mensaje informativo","service":"user-service"}
+{"level":"warn","message":"Hola, soy un mensaje de advertencia","service":"user-service"}
+{"level":"error","message":"Hola, soy un mensaje de error","service":"user-service"}
+{"level":"debug","message":"Hola, soy un mensaje de depuracion","service":"user-service"}
+{"level":"info","message":"Hola, soy un mensaje informativo","service":"user-service"}
+{"level":"warn","message":"Hola, soy un mensaje de advertencia","service":"user-service"}
+{"level":"error","message":"Hola, soy un mensaje de error","service":"user-service"}
+{"level":"debug","message":"Hola, soy un mensaje de depuracion","service":"user-service"}
+{"level":"info","message":"Hola, soy un mensaje informativo","service":"user-service"}
+{"level":"warn","message":"Hola, soy un mensaje de advertencia","service":"user-service"}
+{"level":"error","message":"Hola, soy un mensaje de error","service":"user-service"}
+{"level":"debug","message":"Hola, soy un mensaje de depuracion","service":"user-service"}
+{"level":"info","message":"Hola, soy un mensaje informativo","service":"user-service"}
+{"level":"warn","message":"Hola, soy un mensaje de advertencia","service":"user-service"}
+{"level":"error","message":"Hola, soy un mensaje de error","service":"user-service"}
+{"level":"debug","message":"Hola, soy un mensaje de depuracion","service":"user-service"}
+{"level":"info","message":"Hola, soy un mensaje informativo","service":"user-service"}
+{"level":"warn","message":"Hola, soy un mensaje de advertencia","service":"user-service"}
+{"level":"error","message":"Hola, soy un mensaje de error","service":"user-service"}
+{"level":"debug","message":"Hola, soy un mensaje de depuracion","service":"user-service"}
+{"level":"info","message":"Hola, soy un mensaje informativo","service":"user-service"}
+{"level":"warn","message":"Hola, soy un mensaje de advertencia","service":"user-service"}
+{"level":"error","message":"Hola, soy un mensaje de error","service":"user-service"}
+{"level":"debug","message":"Hola, soy un mensaje de depuracion","service":"user-service"}
+{"level":"info","message":"Hola, soy un mensaje informativo","service":"user-service"}
+{"level":"warn","message":"Hola, soy un mensaje de advertencia","service":"user-service"}
+{"level":"error","message":"Hola, soy un mensaje de error","service":"user-service"}
+{"level":"debug","message":"Hola, soy un mensaje de depuracion","service":"user-service"}
+{"level":"error","message":"Soy el nuevo error de turno","service":"user-service"}
+{"level":"error","message":"Soy el nuevo error de turno","service":"user-service"}
