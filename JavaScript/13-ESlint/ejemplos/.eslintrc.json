@@ -1,0 +1,13 @@
+// Archivo de configuracion de reglas Eslint
+// el codigo que esta debajo se saca de la pagina principal de ESlint.
+
+{
+  "rules": {
+    // Override our default settings just for this directory
+    "eqeqeq": "warn",
+    "strict": "off",
+    "quotes": ["error", "double"],
+    "semi": ["error", "never"],
+    "no-dupe-keys": "error"
+  }
+}

@@ -1,1 +1,5 @@
-{}
+{
+	"javascript.suggest.enabled": true,
+	"typescript.format.insertSpaceAfterConstructor": true,
+	"prettier.tabWidth": 4
+}
