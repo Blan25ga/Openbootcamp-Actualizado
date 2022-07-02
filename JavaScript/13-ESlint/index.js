@@ -1,5 +1,5 @@
 let nombre = "Gabriel";
-let apellido = "Blanco";
+let apellido = 'Blanco';
 const estudiante = nombre.concat(` `).concat(apellido);
 
 let estudianteMayus = estudiante.toUpperCase();
