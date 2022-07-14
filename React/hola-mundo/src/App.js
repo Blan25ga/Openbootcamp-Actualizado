@@ -5,16 +5,14 @@ import Greetingf from './components/pure/GreetingF';  // se crea la funcion App,
 import TaskListComponent from './components/container/task_list'; // se importa el componente TaskListComponent, para q tome los cambios de "task_list.jsx"
 //llamada al componenteA, para q tome los cambios de "componenteA.jsx"
 import ComponenteA from './components/container/componenteA';
+import Ejemplo1 from './hooks/ejemplo1';
+import Ejemplo2 from './hooks/ejemplo2';
+import MiComponenteConContexto from './hooks/ejemplo3';
+import Ejemplo4 from './hooks/ejemplo4';
 
 
 
 function App() { // se crea la funcion App, es obligatiro que tenga un return y una etiqueta div.
-    const contactoPrueva = {
-        nombre: 'Juan',
-        apellido: 'Perez',
-        email: 'juancitoperez@gmail.com',
-        conectado: false,
-    };
 
     return (
         <div className="App"> {/*se crea la etiqueta div con la clase App */}
@@ -26,7 +24,15 @@ function App() { // se crea la funcion App, es obligatiro que tenga un return y 
                 {/*<Greetingf name="Gabriel"></Greetingf> */}{/*llamada a el componente SaludoF, para q tome los cambios de "Greetingf.jsx" */}
                 {/*Componente de listado de tareas*/}
                 {/*<TaskListComponent></TaskListComponent>*/} {/* llamada al componente TaskListComponent, para q tome los cambios de "task_list.jsx" */}
-                <ComponenteA contacto={contactoPrueva} /> {/* llamada al componente ComponenteA, para q tome los cambios de "componenteA.jsx" */}
+                {/*<ComponenteA contacto={contactoPrueva} /> {/* llamada al componente ComponenteA, para q tome los cambios de "componenteA.jsx" */}
+                {/* Ejemplo de uso de HOOKS */}
+                {/*<Ejemplo1></Ejemplo1> {/* llamada al componente Ejemplo1, para q tome los cambios de "ejemplo1.jsx" */}
+                {/*<Ejemplo2></Ejemplo2> {/* llamada al componente Ejemplo2, para q tome los cambios de "ejemplo2.jsx" */}
+                {/*<MiComponenteConContexto></MiComponenteConContexto> {/* llamada al componente MiComponenteConContexto, para q tome los cambios de "ejemplo3.jsx" */}
+                <Ejemplo4 nombre="Gabriel">
+                    {/* Todo lo que hay aca a dentro es trada como props.children en cualquier componente */}
+                    <h3>Contenido del props.children</h3>
+                </Ejemplo4>
             </header>
         </div>
 
