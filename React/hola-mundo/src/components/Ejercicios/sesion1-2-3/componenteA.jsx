@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Contacto } from '../../models/contacto.class'; //se importa la clase Contacto para poder usarla en el componenteA
+import { Contacto } from '../hola-mundo/src/models/contacto.class'; //se importa la clase Contacto para poder usarla en el componenteA
 import ComponenteB from './componenteB'; //se importa y se renderiza el componenteB desde el A
 
 

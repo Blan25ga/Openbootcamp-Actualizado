@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Task } from '../../models/task.class';
 
-
+//importamos la hoja de estilos de task,scss
+import '../../styles/task.scss';
 
 
 //Se crea un componente Task que recibe una tarea y una función para eliminarla
 const TaskComponent = ({ task }) => {
+
+    useEffect(() => {
+        console.log("Created Task"); //tarea completada
+        return () => {
+            console.log(`Task: ${task.name} is going to unmount`); //tarea desmontada
+        }
+    }, [task]); //se ejecuta solo cuando la tarea cambia
+
+
     return (
         <div>
-            <h2>
+            <h2 className='task-name'>
                 Nombre: {task.name}
             </h2>
             <h3>

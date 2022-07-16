@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Contacto } from '../../models/contacto.class'; //se importa la clase Contacto para poder usarla en el componenteA
+import { Contacto } from '../../../models/contacto.class'; //se importa la clase Contacto para poder usarla en el componenteA
 
 function ComponenteB(estado) { //se crea la funcion componenteB, que recibe una propiedad estado que es un boolean
     const [conectado, setConectado] = useState(estado); //se crea una variable conectado y se le asigna el valor de la propiedad estado
