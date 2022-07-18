@@ -2,46 +2,108 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Task } from '../../models/task.class';
 
-//importamos la hoja de estilos de task,scss
-import '../../styles/task.scss';
+// Importamos la hoja de estilos de task.scss
+import '../../styles/task.scss'
+import { LEVELS } from '../../models/levels.enum';
 
-
-//Se crea un componente Task que recibe una tarea y una función para eliminarla
 const TaskComponent = ({ task }) => {
 
     useEffect(() => {
-        console.log("Created Task"); //tarea completada
+        console.log('Created Task')
         return () => {
-            console.log(`Task: ${task.name} is going to unmount`); //tarea desmontada
+            console.log(`Task: ${task.name} is going to unmount`);
         }
-    }, [task]); //se ejecuta solo cuando la tarea cambia
+    }, [task]);
+
+    /**
+     * Function that returns a Badge
+     * depending on the level of the task
+     */
+    function taskLevelBadge() {
+        switch (task.level) {
+            case LEVELS.NORMAL:
+                return (
+                    <h6 className='mb-0'>
+                        <span className='badge bg-primary'>
+                            {task.level}
+                        </span>
+                    </h6>)
+            case LEVELS.URGENT:
+                return (
+                    <h6 className='mb-0'>
+                        <span className='badge bg-warning'>
+                            {task.level}
+                        </span>
+                    </h6>)
+            case LEVELS.BLOCKING:
+                return (
+                    <h6 className='mb-0'>
+                        <span className='badge bg-danger'>
+                            {task.level}
+                        </span>
+                    </h6>)
+            default:
+                break;
+        }
+    }
+
+    /**
+     * Function that returns icon depending on completion of the task
+     */
+    function taskCompletedIcon() {
+        if (task.completed) {
+            return (<i className='bi-toggle-on' style={{ color: 'green' }}></i>)
+        } else {
+            return (<i className='bi-toggle-off' style={{ color: 'grey' }}></i>)
+        }
+    }
 
 
     return (
-        <div>
-            <h2 className='task-name'>
-                Nombre: {task.name}
-            </h2>
-            <h3>
-                Descripción: {task.description}
-            </h3>
-            <h4>
-                Level: {task.level}
-            </h4>
-            <h5>
-                This task is: {task.completed ? 'COMPLETED' : 'PENDING'} {/* realiza una comparación entre el valor de la propiedad completed y el valor de la constante true y si es true muestra el texto COMPLETED, si no muestra PENDING */}
-            </h5>
+        <tr className='fw-normal'>
+            <th>
+                <span className='ms-2'>{task.name}</span>
+            </th>
+            <td className='align-middle'>
+                <span>{task.description}</span>
+            </td>
+            <td className='align-middle'>
+                {/* TODO: Sustituir por un badge */}
+                <span>{task.level}</span>
+                {/* Execution of function to return badge element */}
+                {taskLevelBadge()}
+            </td>
+            <td className='align-middle'>
+                {/* TODO: SUSTITUIR por Iconos */}
+                <span>{task.completed}</span>
+                {/* Execution of function to return icon depending on completion */}
+                {taskCompletedIcon()}
+                <i className='bi-trash' style={{ color: 'tomato' }}></i>
+            </td>
+        </tr>
 
-        </div>
+        // <div>
+        //     <h2 className='task-name'>
+        //         Nombre: { task.name }
+        //     </h2>
+        //     <h3>
+        //         Descripción: { task.description }
+        //     </h3>
+        //     <h4>
+        //         Level: { task.level }
+        //     </h4>
+        //     <h5>
+        //         This task is: { task.completed ? 'COMPLETED':'PENDING' }
+        //     </h5>
+
+        // </div>
     );
 };
 
-// instancia de la clase Task para que el componente pueda recibirla como propiedad en el componente TaskList
+
 TaskComponent.propTypes = {
     task: PropTypes.instanceOf(Task)
-
-
 };
 
 
-export default TaskComponent; //* exportamos el componente TaskComponent para que pueda ser usado en otro componente
+export default TaskComponent;

@@ -1,46 +1,84 @@
 import React, { useState, useEffect } from 'react';
 import { LEVELS } from '../../models/levels.enum';
-import { Task } from '../../models/task.class';
+import { Task } from '../../models/task.class'
 import TaskComponent from '../pure/task';
 
 // Importamos la hoja de estilos de task.scss
 import '../../styles/task.scss';
-
+import Taskform from '../pure/forms/taskForms';
 
 const TaskListComponent = () => {
 
-    const defaultTasks = new Task("Example", " Default description", false, LEVELS.NORMAL);
-    // estado del componente
-    const [tasks, setTasks] = useState([defaultTasks]); // estado inicial de la lista de tareas
-    const [loading, setLoading] = useState([true]); //estado de carga del componente
+    const defaultTask = new Task('Example', 'Default description', false, LEVELS.NORMAL);
+    const defaultTask1 = new Task('Example1', 'Description1', true, LEVELS.NORMAL);
+    const defaultTask2 = new Task('Example2', 'Description 2', false, LEVELS.URGENT);
+    const defaultTask3 = new Task('Example3', 'Description 3', false, LEVELS.BLOCKING);
 
-    // control del siclo de vida del componete
+
+    // Estado del componente
+    const [tasks, setTasks] = useState([defaultTask1, defaultTask2, defaultTask3]);
+    const [loading, setLoading] = useState(true);
+
+    // Control del ciclo de vida del componente
     useEffect(() => {
-        console.log("Task State has been modified"); // muestra este mensaje cuando el estado del componente cambia
-        setLoading(false); // cambia el estado de carga a false
+        console.log('Task State has been modified');
+        setLoading(false);
         return () => {
-            // limpiar el estado del componente
-            console.log("TaskList component is goin to unmount"); // muestra este mensaje cuando el componente se va a desmontar
+            console.log('TaskList component is going to unmount...')
         }
-    }, [tasks]);
+    }, [tasks])
 
 
-    const changCompleted = (Id) => {
-        console.log('Todo : Cambiar estado de una tarea');
+    const changeCompleted = (id) => {
+        console.log('TODO: Cambiar estado de una tarea')
     }
 
     return (
         <div>
-            <div>
-                <h1>Your tasks:</h1>
+            <div className='col-12'>
+                <div className='card'>
+                    {/* Card Header (title) */}
+                    <div className='card-header p-3'>
+                        <h5>
+                            Your Tasks:
+                        </h5>
+                    </div>
+                    {/* Card Body (content) */}
+                    <div className='card-body' data-mdb-perfect-scrollbar='true' style={{ position: 'relative', height: '400px' }}>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope='col'>Title</th>
+                                    <th scope='col'>Description</th>
+                                    <th scope='col'>Priority</th>
+                                    <th scope='col'>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {/* TODO: Iterar sobre una lista de tareas */}
+                                <TaskComponent task={defaultTask}></TaskComponent>
+                                {tasks.map((task, index) => {
+                                    return (
+                                        <TaskComponent
+                                            key={index}
+                                            task={task}>
+                                        </TaskComponent>
+                                    )
+                                }
+                                )}
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <Taskform></Taskform>
+                </div>
+
             </div>
-            {/* TODO: aplicar un for/map para renderizacion de una lista */}
-            <TaskComponent task={defaultTasks}></TaskComponent> {/* se le pasa una tarea por defecto para que el componente pueda mostrarla*/}
+
+            {/* <TaskComponent task={defaultTask}></TaskComponent> */}
         </div>
     );
 };
 
 
-export default TaskListComponent;  //* exportamos el componente TaskListComponent para que pueda ser usado en otro componente
-
-
+export default TaskListComponent;
