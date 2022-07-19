@@ -9,8 +9,7 @@ import Taskform from '../pure/forms/taskForms';
 
 const TaskListComponent = () => {
 
-    const defaultTask = new Task('Example', 'Default description', false, LEVELS.NORMAL);
-    const defaultTask1 = new Task('Example1', 'Description1', true, LEVELS.NORMAL);
+    const defaultTask1 = new Task('Example1', 'Description 1', true, LEVELS.NORMAL);
     const defaultTask2 = new Task('Example2', 'Description 2', false, LEVELS.URGENT);
     const defaultTask3 = new Task('Example3', 'Description 3', false, LEVELS.BLOCKING);
 
@@ -29,9 +28,32 @@ const TaskListComponent = () => {
     }, [tasks])
 
 
-    const changeCompleted = (id) => {
-        console.log('TODO: Cambiar estado de una tarea')
+    function completeTask(task) {
+        console.log('Complete this task: ', task);
+        const index = tasks.indexOf(task)
+        const tempTasks = [...tasks];
+        tempTasks[index].completed = !tempTasks[index].completed;
+        setTasks(tempTasks);
     }
+
+    function deleteTask(task) {
+        console.log('Delete this task: ', task);
+        const index = tasks.indexOf(task)
+        const tempTasks = [...tasks];
+        tempTasks.splice(index, 1);
+        setTasks(tempTasks);
+
+    }
+
+    function addTask(task) {
+        console.log('Delete this task: ', task);
+        const index = tasks.indexOf(task)
+        const tempTasks = [...tasks];
+        tempTasks.push(task);
+        setTasks(tempTasks);
+    }
+
+
 
     return (
         <div>
@@ -56,12 +78,14 @@ const TaskListComponent = () => {
                             </thead>
                             <tbody>
                                 {/* TODO: Iterar sobre una lista de tareas */}
-                                <TaskComponent task={defaultTask}></TaskComponent>
                                 {tasks.map((task, index) => {
                                     return (
                                         <TaskComponent
                                             key={index}
-                                            task={task}>
+                                            task={task}
+                                            complete={completeTask}
+                                            remove={deleteTask}
+                                        >
                                         </TaskComponent>
                                     )
                                 }
@@ -70,12 +94,10 @@ const TaskListComponent = () => {
 
                         </table>
                     </div>
-                    <Taskform></Taskform>
                 </div>
 
             </div>
-
-            {/* <TaskComponent task={defaultTask}></TaskComponent> */}
+            <Taskform add={addTask}></Taskform>
         </div>
     );
 };
