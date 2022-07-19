@@ -37,8 +37,10 @@ function App() { // se crea la funcion App, es obligatiro que tenga un return y 
             {/*<GreetingStyles name="Gabriel"></GreetingStyles>*/}
             {/*<Clock></Clock>
             </header> */}
-            <TaskListComponent></TaskListComponent>
-            {/*<Father></Father>*/}
+            {/*<TaskListComponent></TaskListComponent>*/}
+
+            {/* Gestion de Eventos */}
+            <Father></Father>
         </div>
     );
 }
