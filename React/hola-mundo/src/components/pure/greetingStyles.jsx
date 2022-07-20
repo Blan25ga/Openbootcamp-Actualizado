@@ -4,12 +4,15 @@ import React, { useState } from 'react';
 
 //? Estilos para el componente cuando esta logueado
 const loggedStyle = {
+    backgroundColor: 'green',
     color: 'white',
+    fontWeight: 'bold'
 }
 
 // ? Estilo para cuando NO este logueado
 const unloggedStyle = {
-    color: 'red',
+    backgroundColor: 'red',
+    color: 'white',
     fontWeight: 'bold' // se utiliza camelCase para definir el estilo en constantes
 }
 
