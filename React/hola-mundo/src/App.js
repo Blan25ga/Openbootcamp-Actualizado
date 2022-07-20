@@ -12,6 +12,9 @@ import Ejemplo4 from './hooks/ejemplo4';
 import GreetingStyles from './components/pure/greetingStyles'; //!se importa el componente GreetingStyles, para q tome los cambios de "greetingStyles.jsx"
 import Clock from './components/Ejercicios/sesion4-5-6/clock'; // se importa el componente Clock, para q tome los cambios de "clock.jsx"
 import Father from './components/container/father';
+import OptionalRender from './components/pure/optionalRender';
+
+
 
 function App() { // se crea la funcion App, es obligatiro que tenga un return y una etiqueta div.
 
@@ -37,7 +40,11 @@ function App() { // se crea la funcion App, es obligatiro que tenga un return y 
             {/*<GreetingStyles name="Gabriel"></GreetingStyles>*/}
             {/*<Clock></Clock>
             </header> */}
-            <TaskListComponent></TaskListComponent>
+            {/*<TaskListComponent></TaskListComponent>*/}
+
+            {/*Ejemplo de renderizado condicional*/}
+            <OptionalRender></OptionalRender>
+
 
             {/* Gestion de Eventos 
             <Father></Father>*/}
@@ -46,3 +53,10 @@ function App() { // se crea la funcion App, es obligatiro que tenga un return y 
 }
 
 export default App;
+
+//qel metodo set 
+
+
+
+
+
