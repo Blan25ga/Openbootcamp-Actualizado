@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+
+//models
 import { Task } from '../../models/task.class';
+import { LEVELS } from '../../models/levels.enum';
 
 // Importamos la hoja de estilos de task.scss
 import '../../styles/task.scss'
-import { LEVELS } from '../../models/levels.enum';
+
 
 const TaskComponent = ({ task, complete, remove }) => { //aca se pone el props que se le pasa al componente por el componente padre
 
@@ -58,9 +61,20 @@ const TaskComponent = ({ task, complete, remove }) => { //aca se pone el props q
         }
     }
 
+    const taskCompleted = {
+        color: 'grey',
+        fontWeight: 'bold',
+        textDecoration: 'line - through',
+    }
+
+    const taskPending = {
+        color: 'tomato',
+        fontWeight: 'bold',
+    }
+
 
     return (
-        <tr className='fw-normal'>
+        <tr className='fw-normal' style={task.completed ? taskCompleted : taskPending}>
             <th>
                 <span className='ms-2'>{task.name}</span>
             </th>

@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+
+// Models
 import { LEVELS } from '../../../models/levels.enum';
 import { Task } from '../../../models/task.class';
 
 
-const Taskform = ({ add }) => {
+const Taskform = ({ add, length }) => {
 
     const nameRef = useRef('');
     const descriptionRef = useRef('');
@@ -21,15 +23,33 @@ const Taskform = ({ add }) => {
         add(newTask);
     }
 
+    const normalStyle = {
+        color: 'blue',
+        fontWeight: 'bold',
+
+    }
+
+
+    const urgentStyle = {
+        color: 'yellow',
+        fontWeight: 'bold',
+
+    }
+
+    const blockingStyle = {
+        color: 'tomato',
+        fontWeight: 'bold',
+
+    }
+
 
 
     return (
         <form onSubmit={addTask} className='d-flex justify-content-center aling-items-center mb-4'>
             <div className='form-outline flex-fill'>
-                <input ref={nameRef} type='text' className='form-control fprm-form-control-lg' id='inputName' required autoFocus placeholder='Task Name' />
-                <input ref={descriptionRef} type='text' className='form-control fprm-form-control-lg' id='inpuDescription' required placeholder='Description' />
-                <label htmlFor='selectLevel' className='sr-only'>Priority</label>
-                <select ref={levelRef} defaultValue={LEVELS.NORMAL} id='selectLevel'></select>
+                <input ref={nameRef} id='inputname' type='text' className='form-control form-control-lg' required autoFocus placeholder='Task Name'></input>
+                <input ref={descriptionRef} type='text' className='form-control fprm-form-control-lg' id='inpuDescription' required placeholder='Description'></input>
+                <select style={normalStyle} className='form-control form-control-lg' ref={levelRef} defaultValue={LEVELS.NORMAL}></select>
                 <option value={LEVELS.NORMAL}>
                     Normal
                 </option>
@@ -40,12 +60,17 @@ const Taskform = ({ add }) => {
                     Blocking
                 </option>
             </div>
-            <button type='submit' className='btn btn-primary btn-lg ms-2'>Add</button>
+            <button type='submit' className='btn btn-success btn-lg ms-2'>
+                {length ? 'Add New Task' : 'Create your first task'}
+            </button>
         </form>
     )
 }
+
+
 Taskform.propTypes = {
-    add: PropTypes.func.isRequired
+    add: PropTypes.func.isRequired,
+    length: PropTypes.number.isRequired,
 
 }
 

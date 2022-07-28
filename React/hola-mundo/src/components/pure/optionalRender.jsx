@@ -57,9 +57,6 @@ const OptionalRender = () => {
     //     optionalButton = <button onClick={updateAccess}>Login</button>
     // }
 
-
-
-
     if (access) {
         optionalButton = <LogoutButton LogoutAction={logoutAction} />
 
@@ -84,11 +81,14 @@ const OptionalRender = () => {
             {/*} {nMessage === 0 && <p>You have no unread messages</p>} {/* Si nMessage es igual a 0, se renderiza el p */}
 
             {/* Ternary operator // OPERADOR TERNARIO*/}
-            {nMessage > 0 ?
-                <p>You have {nMessage} new messages{nMessage > 1 ? 's' : null} ... </p> :
-                <p>There are no new messages</p>}
+            {access ? (
+                <div>
+                    {nMessage > 0 ?
+                        <p>You have {nMessage} new messages{nMessage > 1 ? 's' : null} ... </p> :
+                        <p>There are no new messages</p>}
 
-            <button onClick={addMessage}>{nMessage > 0 ? 'New Message' : 'No New Message'}</button>
+                    <button onClick={addMessage}>{nMessage === 0 ? 'New Message' : 'No New Message'}</button>
+                </div>) : null}
         </div>
     );
 }
